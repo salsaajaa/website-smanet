@@ -527,7 +527,7 @@ const saveAssignment = async () => {
         return // Hentikan proses
       }
       // Panggil endpoint PUT dengan category dan id di URL
-      response = await axios.put(
+      response = await api.put(
         `/daily-assignments/${assignmentForm.value.category}/${assignmentForm.value.id}`,
         payload,
       )
@@ -541,7 +541,7 @@ const saveAssignment = async () => {
       // Log values before API call
       console.log('Saving (Add) with Payload:', payload)
       // Panggil endpoint POST
-      response = await axios.post('/daily-assignments', payload)
+      response = await api.post('/daily-assignments', payload)
       $q.notify({
         color: 'positive',
         message: 'Penugasan berhasil ditambahkan!',
@@ -636,7 +636,7 @@ const deleteAssignment = async () => {
       return // Hentikan proses
     }
     // Panggil endpoint DELETE dengan category dan id di URL
-    await axios.delete(
+    await api.delete(
       `/daily-assignments/${assignmentToDelete.value.category}/${assignmentToDelete.value.id}`,
     )
 
