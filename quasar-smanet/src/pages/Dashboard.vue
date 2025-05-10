@@ -134,8 +134,9 @@ import {
   QSeparator,
   QSpinner,
 } from 'quasar'
-import axios from 'axios'
+
 import { useQuasar } from 'quasar'
+import { api } from 'src/boot/axios'
 
 export default {
   name: 'DashboardPage',
@@ -175,7 +176,7 @@ export default {
         // Berdasarkan log backend, endpoint admin adalah /api/daily-assignments/admin
         // Jika backend sudah mengirim data nested dari endpoint ini, gunakan ini.
         // Jika backend membuat endpoint publik baru (misal: /api/public/daily-assignments), GANTI URL di bawah.
-        const response = await axios.get('/api/daily-assignments/admin') // Menggunakan endpoint admin sesuai log backend
+        const response = await api.get('/daily-assignments/admin') // Menggunakan endpoint admin sesuai log backend
 
         // Langsung menggunakan data nested yang diterima dari backend
         // Asumsikan backend mengirim array objek dengan struktur yang diharapkan template
