@@ -133,6 +133,7 @@ import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAnnouncementStore } from '../../stores/announcementStore' // Menggunakan store pengumuman
 import { useQuasar } from 'quasar'
+import { BASE_API_URL } from '../../boot/config'
 
 const router = useRouter()
 const announcementStore = useAnnouncementStore() // Menggunakan store pengumuman
@@ -181,7 +182,7 @@ const columns = [
 const getFullImageUrl = (imagePath) => {
   if (imagePath && typeof imagePath === 'string' && imagePath.startsWith('/uploads/')) {
     // PASTIKAN PORT INI SESUAI DENGAN PORT BACKEND ANDA (3000)
-    return `http://localhost:3000${imagePath}`
+    return BASE_API_URL + imagePath
   }
   return imagePath // Mengembalikan path asli jika tidak dimulai dengan /uploads/
 }

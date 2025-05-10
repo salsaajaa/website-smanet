@@ -113,6 +113,7 @@ import { ref, onMounted } from 'vue'
 import { useNewsStore } from '../../stores/newsStore'
 import { useQuasar } from 'quasar'
 import { useRouter } from 'vue-router'
+import { BASE_API_URL } from '../../boot/config'
 
 const newsStore = useNewsStore()
 const $q = useQuasar()
@@ -191,7 +192,7 @@ const confirmDeleteNews = async () => {
 const getFullImageUrl = (imagePath) => {
   if (imagePath && typeof imagePath === 'string' && imagePath.startsWith('/uploads/')) {
     // PASTIKAN PORT INI SESUAI DENGAN PORT BACKEND ANDA (3000)
-    return `http://localhost:3000${imagePath}`
+    return BASE_API_URL + imagePath
   }
   return imagePath
 }

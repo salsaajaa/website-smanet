@@ -54,6 +54,7 @@ import { ref, onMounted, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useQuasar } from 'quasar'
 import { fetchNewsByIdOrSlug, fetchAnnouncementById } from 'src/api/newsAndAnnouncementsApi'
+import { BASE_API_URL } from '../boot/config'
 
 const $q = useQuasar()
 const route = useRoute()
@@ -119,7 +120,6 @@ const formatDate = (dateString) => {
 
 const getFullImageUrl = (imagePath) => {
   if (imagePath && imagePath.startsWith('/uploads/')) {
-    return `http://localhost:3000${imagePath}`
   }
   return imagePath
 }

@@ -353,7 +353,7 @@ const formatDate = (dateString) => {
 const getFullImageUrl = (imagePath) => {
   // Asumsi backend berjalan di http://localhost:3000 dan folder uploads bisa diakses via /uploads
   if (imagePath && typeof imagePath === 'string' && imagePath.startsWith('/uploads/')) {
-    return `http://localhost:3000${imagePath}` // <-- PASTIKAN PORT BACKEND KAMU BENAR (3000)
+    return BASE_API_URL + imagePath
   }
   // Jika path bukan dari /uploads atau formatnya beda, kembalikan apa adanya
   return imagePath

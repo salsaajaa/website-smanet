@@ -93,6 +93,7 @@ import { useQuasar } from 'quasar'
 import axios from 'axios'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from 'src/stores/auth'
+import { BASE_API_URL } from '../boot/config'
 
 const $q = useQuasar()
 const router = useRouter()
@@ -121,7 +122,7 @@ const onSubmit = async () => {
   submitting.value = true
   try {
     // UBAH PORT DARI 8000 MENJADI 3000 SESUAI BACKEND ANDA
-    const response = await axios.post('http://localhost:3000/api/auth/signup', {
+    const response = await axios.post(BASE_API_URL + '/api/auth/signup', {
       email: formData.value.email,
       password: formData.value.password,
     })

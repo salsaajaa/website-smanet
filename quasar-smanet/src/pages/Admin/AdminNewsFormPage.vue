@@ -117,6 +117,7 @@ import { ref, onMounted, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useNewsStore } from '../../stores/newsStore'
 import { useQuasar } from 'quasar'
+import { BASE_API_URL } from '../../boot/config'
 
 const route = useRoute()
 const router = useRouter()
@@ -180,7 +181,7 @@ const removeExistingImage = () => {
 
 const getFullImageUrl = (imagePath) => {
   if (imagePath && typeof imagePath === 'string' && imagePath.startsWith('/uploads/')) {
-    return `http://localhost:3000${imagePath}`
+    return BASE_API_URL + imagePath
   }
   return imagePath
 }

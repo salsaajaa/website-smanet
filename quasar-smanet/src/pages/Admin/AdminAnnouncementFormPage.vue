@@ -123,6 +123,7 @@ import { ref, onMounted, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useAnnouncementStore } from '../../stores/announcementStore'
 import { useQuasar } from 'quasar'
+import { BASE_API_URL } from '../../boot/config'
 
 const route = useRoute()
 const router = useRouter()
@@ -187,7 +188,7 @@ const removeExistingImage = () => {
 const getFullImageUrl = (imagePath) => {
   if (imagePath && typeof imagePath === 'string' && imagePath.startsWith('/uploads/')) {
     // PASTIKAN PORT INI SESUAI DENGAN PORT BACKEND ANDA (3000)
-    return `http://localhost:3000${imagePath}`
+    return BASE_API_URL + imagePath
   }
   return imagePath
 }

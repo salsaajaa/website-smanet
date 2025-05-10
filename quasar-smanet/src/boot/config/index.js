@@ -1,0 +1,2 @@
+export const BASE_API_URL = process.env.VUE_APP_API_URL || 'http://localhost:3000'; // apismansev.is-web.my.id
+export const BASE_URL = process.env.VUE_APP_API_URL || 'http://localhost:3000'; // smansev.is-web.my.id

@@ -150,7 +150,7 @@ const submitForm = async () => {
     return
   }
 
-  const backendUrl = 'http://localhost:3000/api/contact'
+  const backendUrl = BASE_API_URL + '/api/contact'
 
   isSubmitting.value = true
 

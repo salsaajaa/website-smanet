@@ -56,7 +56,7 @@ const onSubmit = async () => {
   submitting.value = true
 
   try {
-    const response = await axios.post('http://localhost:3000/api/auth/forgot-password', {
+    const response = await axios.post(BASE_API_URL + '/api/auth/forgot-password', {
       email: email.value,
     })
 

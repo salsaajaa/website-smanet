@@ -1,9 +1,10 @@
 import { boot } from 'quasar/wrappers'
 import axios from 'axios'
+import { BASE_API_URL } from './config'
 
 // Buat instance axios kita
 const api = axios.create({
-  baseURL: 'http://localhost:3000/api',
+  baseURL:  BASE_API_URL,
 })
 
 // Menggunakan interceptor untuk menambahkan token di setiap request
