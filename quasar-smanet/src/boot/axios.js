@@ -4,7 +4,7 @@ import { BASE_API_URL } from './config'
 
 // Buat instance axios kita
 const api = axios.create({
-  baseURL:  BASE_API_URL,
+  baseURL: BASE_API_URL + '/api',
 })
 
 // Menggunakan interceptor untuk menambahkan token di setiap request

@@ -209,6 +209,7 @@ import {
   fetchNewsByIdOrSlug,
   fetchAnnouncementById,
 } from 'src/api/newsAndAnnouncementsApi'
+import { BASE_API_URL } from '../boot/config'
 
 const $q = useQuasar()
 const router = useRouter()

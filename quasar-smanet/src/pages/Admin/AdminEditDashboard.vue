@@ -295,7 +295,7 @@ import {
   QSelect,
   useQuasar,
 } from 'quasar'
-import axios from 'axios' // Menggunakan axios langsung untuk API calls
+import { api } from '../../boot/axios'
 
 const $q = useQuasar()
 
@@ -376,7 +376,7 @@ const loadDailyAssignments = async () => {
   try {
     // Panggil endpoint admin yang sekarang mengembalikan struktur bersarang
     // PASTIKAN URL ENDPOINT BACKEND KAMU BENAR
-    const response = await axios.get('/api/daily-assignments/admin')
+    const response = await api.get('/daily-assignments/admin')
 
     // Backend seharusnya mengembalikan array bersarang langsung
     if (Array.isArray(response.data)) {
@@ -528,7 +528,7 @@ const saveAssignment = async () => {
       }
       // Panggil endpoint PUT dengan category dan id di URL
       response = await axios.put(
-        `/api/daily-assignments/${assignmentForm.value.category}/${assignmentForm.value.id}`,
+        `/daily-assignments/${assignmentForm.value.category}/${assignmentForm.value.id}`,
         payload,
       )
       $q.notify({
@@ -541,7 +541,7 @@ const saveAssignment = async () => {
       // Log values before API call
       console.log('Saving (Add) with Payload:', payload)
       // Panggil endpoint POST
-      response = await axios.post('/api/daily-assignments', payload)
+      response = await axios.post('/daily-assignments', payload)
       $q.notify({
         color: 'positive',
         message: 'Penugasan berhasil ditambahkan!',
@@ -637,7 +637,7 @@ const deleteAssignment = async () => {
     }
     // Panggil endpoint DELETE dengan category dan id di URL
     await axios.delete(
-      `/api/daily-assignments/${assignmentToDelete.value.category}/${assignmentToDelete.value.id}`,
+      `/daily-assignments/${assignmentToDelete.value.category}/${assignmentToDelete.value.id}`,
     )
 
     showDeleteConfirm.value = false

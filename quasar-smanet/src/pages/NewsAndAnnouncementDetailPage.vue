@@ -120,6 +120,7 @@ const formatDate = (dateString) => {
 
 const getFullImageUrl = (imagePath) => {
   if (imagePath && imagePath.startsWith('/uploads/')) {
+    return BASE_API_URL + imagePath
   }
   return imagePath
 }

@@ -45,6 +45,7 @@ import { ref } from 'vue'
 import { useQuasar } from 'quasar'
 import axios from 'axios'
 import { useRouter } from 'vue-router'
+import { BASE_API_URL } from '../boot/config'
 
 const $q = useQuasar()
 const router = useRouter()

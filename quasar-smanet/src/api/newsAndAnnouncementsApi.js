@@ -1,12 +1,12 @@
-import axios from 'axios'
-
 // --- FUNGSI UNTUK BERITA (NEWS) ---
+
+import { api } from "src/boot/axios"
 
 // Mengambil daftar semua berita
 export const fetchAllNews = async () => {
   try {
     // PASTIKAN URL ENDPOINT BACKEND KAMU BENAR
-    const response = await axios.get('/api/news')
+    const response = await api.get('/news')
     if (response.status >= 200 && response.status < 300) {
       return response.data
     } else {
@@ -27,7 +27,7 @@ export const fetchAllNews = async () => {
 export const fetchNewsByIdOrSlug = async (identifier) => {
   try {
     // PASTIKAN URL ENDPOINT BACKEND KAMU BENAR
-    const response = await axios.get(`/api/news/${identifier}`)
+    const response = await api.get(`/news/${identifier}`)
     if (response.status >= 200 && response.status < 300) {
       return response.data
     } else {
@@ -48,7 +48,7 @@ export const fetchNewsByIdOrSlug = async (identifier) => {
 export const createNews = async (newsData) => {
   try {
     // PASTIKAN URL ENDPOINT BACKEND KAMU BENAR
-    const response = await axios.post('/api/news', newsData)
+    const response = await api.post('/news', newsData)
     if (response.status >= 200 && response.status < 300) {
       return response.data
     } else {
@@ -69,7 +69,7 @@ export const createNews = async (newsData) => {
 export const updateNews = async (newsId, newsData) => {
   try {
     // PASTIKAN URL ENDPOINT BACKEND KAMU BENAR
-    const response = await axios.put(`/api/news/${newsId}`, newsData)
+    const response = await api.put(`/news/${newsId}`, newsData)
     if (response.status >= 200 && response.status < 300) {
       return response.data
     } else {
@@ -90,7 +90,7 @@ export const updateNews = async (newsId, newsData) => {
 export const deleteNews = async (newsId) => {
   try {
     // PASTIKAN URL ENDPOINT BACKEND KAMU BENAR
-    const response = await axios.delete(`/api/news/${newsId}`)
+    const response = await api.delete(`/news/${newsId}`)
     if (response.status >= 200 && response.status < 300) {
       return response.data
     } else {
@@ -113,7 +113,7 @@ export const deleteNews = async (newsId) => {
 export const fetchAllAnnouncements = async () => {
   try {
     // PASTIKAN URL ENDPOINT BACKEND KAMU BENAR
-    const response = await axios.get('/api/announcements')
+    const response = await api.get('/announcements')
     if (response.status >= 200 && response.status < 300) {
       return response.data
     } else {
@@ -134,7 +134,7 @@ export const fetchAllAnnouncements = async () => {
 export const fetchAnnouncementById = async (announcementId) => {
   try {
     // PASTIKAN URL ENDPOINT BACKEND KAMU BENAR
-    const response = await axios.get(`/api/announcements/${announcementId}`)
+    const response = await api.get(`/announcements/${announcementId}`)
     if (response.status >= 200 && response.status < 300) {
       return response.data
     } else {
@@ -155,7 +155,7 @@ export const fetchAnnouncementById = async (announcementId) => {
 export const createAnnouncement = async (announcementData) => {
   try {
     // PASTIKAN URL ENDPOINT BACKEND KAMU BENAR
-    const response = await axios.post('/api/announcements', announcementData)
+    const response = await api.post('/announcements', announcementData)
     if (response.status >= 200 && response.status < 300) {
       return response.data
     } else {
@@ -176,7 +176,7 @@ export const createAnnouncement = async (announcementData) => {
 export const updateAnnouncement = async (announcementId, announcementData) => {
   try {
     // PASTIKAN URL ENDPOINT BACKEND KAMU BENAR
-    const response = await axios.put(`/api/announcements/${announcementId}`, announcementData)
+    const response = await api.put(`/announcements/${announcementId}`, announcementData)
     if (response.status >= 200 && response.status < 300) {
       return response.data
     } else {
@@ -197,7 +197,7 @@ export const updateAnnouncement = async (announcementId, announcementData) => {
 export const deleteAnnouncement = async (announcementId) => {
   try {
     // PASTIKAN URL ENDPOINT BACKEND KAMU BENAR
-    const response = await axios.delete(`/api/announcements/${announcementId}`)
+    const response = await api.delete(`/announcements/${announcementId}`)
     if (response.status >= 200 && response.status < 300) {
       return response.data
     } else {

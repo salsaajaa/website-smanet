@@ -80,6 +80,7 @@ import { ref, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useQuasar } from 'quasar'
 import axios from 'axios'
+import { BASE_API_URL } from '../boot/config'
 
 const route = useRoute()
 const router = useRouter()

@@ -1,11 +1,11 @@
-import axios from 'axios'
+import { api } from 'src/boot/axios'
 
 // Fungsi asynchronous untuk mengambil data penugasan harian dari backend API
 export const fetchDailyAssignments = async () => {
   try {
     // Panggil endpoint backend untuk mendapatkan data (endpoint admin mengembalikan struktur bersarang)
     // PASTIKAN URL ENDPOINT BACKEND KAMU BENAR
-    const response = await axios.get('/api/daily-assignments/admin')
+    const response = await api.get('/daily-assignments/admin')
 
     // Periksa jika respons berhasil (status code 2xx)
     if (response.status >= 200 && response.status < 300) {
@@ -28,7 +28,7 @@ export const createDailyAssignment = async (assignmentData) => {
   try {
     // Panggil endpoint backend untuk menambahkan data
     // PASTIKAN URL ENDPOINT BACKEND KAMU BENAR
-    const response = await axios.post('/api/daily-assignments', assignmentData)
+    const response = await api.post('/daily-assignments', assignmentData)
     return response.data
   } catch (error) {
     console.error('Error in createDailyAssignment:', error)
@@ -41,7 +41,7 @@ export const updateDailyAssignment = async (category, id, assignmentData) => {
   try {
     // Panggil endpoint backend untuk memperbarui data
     // PASTIKAN URL ENDPOINT BACKEND KAMU BENAR
-    const response = await axios.put(`/api/daily-assignments/${category}/${id}`, assignmentData)
+    const response = await api.put(`/daily-assignments/${category}/${id}`, assignmentData)
     return response.data
   } catch (error) {
     console.error('Error in updateDailyAssignment:', error)
@@ -54,7 +54,7 @@ export const deleteDailyAssignment = async (category, id) => {
   try {
     // Panggil endpoint backend untuk menghapus data
     // PASTIKAN URL ENDPOINT BACKEND KAMU BENAR
-    const response = await axios.delete(`/api/daily-assignments/${category}/${id}`)
+    const response = await api.delete(`/daily-assignments/${category}/${id}`)
     return response.data
   } catch (error) {
     console.error('Error in deleteDailyAssignment:', error)
